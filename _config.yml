@@ -22,11 +22,20 @@ atom_feed:
 include:
   - _pages
 exclude:
+  - .asset-cache
+  - .bundle
   - .devcontainer
   - .github
+  - .jekyll-assets-cache
+  - .jekyll-cache
+  - .sass-cache
+  - _site
+  - node_modules
+  - vendor
   - AGENTS.md
   - Dockerfile
   - Gemfile
+  - Gemfile.lock
   - LICENSE
   - README.md
   - docker-compose.yaml
