@@ -1,0 +1,9 @@
+<ol>
+{% for paper in site.data.publications %}
+  <li>
+    <strong>{{ paper.title | escape }}</strong><br />
+    {{ paper.authors | escape }}.<br />
+    <em>{{ paper.venue | escape }}</em>, {{ paper.year }}{% if paper.role %} ({{ paper.role | escape }}){% endif %}.
+  </li>
+{% endfor %}
+</ol>
