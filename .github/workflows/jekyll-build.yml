@@ -25,3 +25,16 @@ jobs:
         run: bundle exec jekyll build --strict_front_matter
         env:
           JEKYLL_ENV: production
+
+      - name: Verify about and publications without template demo pages
+        run: |
+          test -f _site/index.html
+          test -f _site/publications/index.html
+          grep -Fq 'SynLogic: Synthesizing Verifiable Reasoning Data at Scale for Learning Logical Reasoning and Beyond' _site/index.html
+          grep -Fq 'Composing Parameter-Efficient Modules with Arithmetic Operations' _site/index.html
+          grep -Fq 'SynLogic: Synthesizing Verifiable Reasoning Data at Scale for Learning Logical Reasoning and Beyond' _site/publications/index.html
+          test ! -e _site/cv/index.html
+          test ! -e _site/portfolio/index.html
+          test ! -e _site/talks/index.html
+          test ! -e _site/teaching/index.html
+          ! grep -R -q 'Paper Title Number 1' _site --include='*.html'
